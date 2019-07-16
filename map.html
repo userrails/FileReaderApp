@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map</title>
+    <link rel="stylesheet" href="/assets/js/jquery-jvectormap-2.0.3/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <script src="jquery.js"></script> -->
+    <script src="/assets/js/jquery-jvectormap-2.0.3/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="/assets/js/jquery-jvectormap-2.0.3/jquery-jvectormap-world-mill.min.js"></script>
+  </head>
+  <body>
+    <p><a class="nav-link active" href="/">&larr; Go Home</a> <br /></p>
+    <div id="world-map-gdp" style="width: 600px; height: 400px"></div>
+  </body>
+</html>
+
+<script type="text/javascript">
+  $(function(){
+    var gdpData = {
+      "AF": 16.63,
+      "AL": 11.58,
+      "DZ": 158.97,
+    };
+
+    $('#world-map-gdp').vectorMap({
+      map: 'world_mill',
+      series: {
+        regions: [{
+          values: gdpData,
+          scale: ['#C8EEFF', '#0071A4'],
+          normalizeFunction: 'polynomial'
+        }]
+      },
+      onRegionTipShow: function(e, el, code){
+        el.html(el.html()+' (GDP - '+gdpData[code]+')');
+      }
+    });
+  });
+</script>

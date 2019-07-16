@@ -10,6 +10,8 @@
 
   <body>
     <div class="container">
+      <p><a class="nav-link active" href="map.html">&larr; View Map</a></p>
+      <p><a class="nav-link active" href="images.html">&larr; Back to Images</a></p>
       <h2>Contact</h2>
       <div class="panel panel-default">
         <div class="panel-body" id="contact"></div>
@@ -34,7 +36,6 @@
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
-                alert(allText);
                 document.getElementById('contact').innerHTML = allText;
             }
         }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map</title>
+    <link rel="stylesheet" href="/assets/js/jquery-jvectormap-2.0.3/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <script src="jquery.js"></script> -->
+    <script src="/assets/js/jquery-jvectormap-2.0.3/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="/assets/js/jquery-jvectormap-2.0.3/jquery-jvectormap-world-mill.min.js"></script>
+  </head>
+  <body>
+    <p><a class="nav-link active" href="/">&larr; Go Home</a> <br /></p>
+    <div class="row" id="gallery"></div>
+  </body>
+</html>
+
+<script type="text/javascript">
+  // load all the pictures
+  var folder = "/assets/img/";
+
+    $.ajax({
+        url : folder,
+        success: function (data) {
+            $(data).find("a").attr("href", function (i, val) {
+                if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                    $("#gallery").append( "<img src='"+ folder + val +"' class='img-responsive'>" );
+                } 
+            });
+        }
+    });
+</script>
+
+<style type="text/css">
+  #gallery img {
+    width: 390px;
+    height: 390px;
+  }
+</style>
