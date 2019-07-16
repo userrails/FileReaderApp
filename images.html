@@ -47,7 +47,7 @@
             <p>Modal body text goes here.</p>
 
             <!-- Modal Content (The Image) -->
-            <img class="modal-content img-responsive" id="img01">
+            <img class="modal-content img-responsive" id="update-me">
 
             <!-- Modal Caption (Image Text) -->
             <div id="caption"></div>
@@ -76,7 +76,7 @@
         success: function (data) {
             $(data).find("a").attr("href", function (i, val) {
                 if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-                    $("#gallery").append( "<img src='"+ folder + val +"' class='d-block w-100 h-100' id='imagepreview"+ "-" + i +"'>" );
+                    $("#gallery").append( "<img src='"+ folder + val +"' class='d-block w-100 h-100 clickable-image' id='imagepreview"+ "-" + i +"'>" );
                 }
             });
         }
@@ -95,15 +95,16 @@
 
       // // Get the image and insert it inside the modal - use its "alt" text as a caption
       var img = document.getElementById("imagepreview-1");
-      var modalImg = document.getElementById("img01");
+      var modalImg = document.getElementById("update-me");
       var captionText = document.getElementById("caption");
       console.log("------");
-      
-      img.onclick = function(){
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-      }
+
+      $('.clickable-image').on('click', function(e) {
+          var parentImg = $(this)
+          $('#myModal').modal('show')
+          modalImg.src = parentImg.attr('src');
+          captionText.innerHTML = parentImg.attr('alt');
+      })
     };
 
     // // Get the <span> element that closes the modal
