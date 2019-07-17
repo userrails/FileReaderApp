@@ -9,6 +9,7 @@
     <script src="/assets/js/jquery-jvectormap-2.0.3/jquery-jvectormap-world-mill.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
   </head>
 
   <body>
@@ -16,23 +17,8 @@
 
     <div class="row" id="gallery"></div>
 
-
     <!-- Trigger the Modal -->
     <img id="myImg" src="img_snow.jpg" alt="Snow" style="width:100%;max-width:300px">
-
-    <!-- The Modal -->
-    <!-- <div id="myModal" class="modal"> -->
-
-      <!-- The Close Button -->
-      <!-- <span class="close">&times;</span> -->
-
-      <!-- Modal Content (The Image) -->
-      <!-- <img class="modal-content" id="img01"> -->
-
-      <!-- Modal Caption (Image Text) -->
-      <!-- <div id="caption"></div> -->
-    <!-- </div> -->
-
 
     <div id="myModal" class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
@@ -89,15 +75,13 @@
     });
 
     window.onload = function(){ 
-    // your code 
       // Get the modal
       var modal = document.getElementById("myModal");
 
-      // // Get the image and insert it inside the modal - use its "alt" text as a caption
+      // Get the image and insert it inside the modal - use its "alt" text as a caption
       var img = document.getElementById("imagepreview-1");
       var modalImg = document.getElementById("update-me");
       var captionText = document.getElementById("caption");
-      console.log("------");
 
       $('.clickable-image').on('click', function(e) {
           var parentImg = $(this)
@@ -112,9 +96,3 @@
     });
 </script>
 
-<style type="text/css">
-  #gallery img {
-    width: 390px;
-    height: 390px;
-  }
-</style>
