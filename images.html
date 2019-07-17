@@ -2,7 +2,12 @@
 <html>
   <head>
     <title>Map</title>
-    <link rel="stylesheet" href="/assets/js/jquery-jvectormap-2.0.3/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+    
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -26,8 +31,6 @@
             </button>
           </div>
           <div class="modal-body">
-            <p>Modal body text goes here.</p>
-
             <!-- Modal Content (The Image) -->
             <img class="modal-content img-responsive" id="update-me">
 
@@ -35,56 +38,10 @@
             <div id="caption"></div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Save changes</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
-    </div>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script src="/assets/js/jquery-jvectormap-2.0.3/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="/assets/js/jquery-jvectormap-2.0.3/jquery-jvectormap-world-mill.min.js"></script>
+    </div>    
   </body>
 </html>
-
-<script type="text/javascript">
-  // load all the pictures
-  var folder = "/assets/img/";
-
-    $.ajax({
-        url : folder,
-        success: function (data) {
-            $(data).find("a").attr("href", function (i, val) {
-                if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-                    $("#gallery").append( "<img src='"+ folder + val +"' class='d-block w-100 h-100 clickable-image' id='imagepreview"+ "-" + i +"'>" );
-                }
-            });
-        }
-    });
-
-    window.onload = function(){ 
-      // Get the modal
-      var modal = document.getElementById("myModal");
-
-      // Get the image and insert it inside the modal - use its "alt" text as a caption
-      var img = document.getElementById("imagepreview-1");
-      var modalImg = document.getElementById("update-me");
-      var captionText = document.getElementById("caption");
-
-      $('.clickable-image').on('click', function(e) {
-          var parentImg = $(this)
-          $('#myModal').modal('show')
-          modalImg.src = parentImg.attr('src');
-          captionText.innerHTML = parentImg.attr('alt');
-      })
-    };
-
-    $(function () {
-       $("#myModal .close").click()
-    });
-</script>
-
